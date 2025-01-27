@@ -1,8 +1,14 @@
 <h2>Kategorie zdjęć</h2>
-<div *ngFor="let image of images; let i = index" class="image-container">
-    <img [src]="image.src" [alt]="image.alt" class="img-thumbnail">
-    <div class="image-details">
-        <button (click)="downloadImage(image)" class="btn btn-primary">Pobierz</button>
-        <span>Pobrań: {{ image.downloads }}</span>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let image of images; let i = index" class="col-md-4 col-sm-6 col-xs-12 mb-4">
+      <div class="image-container">
+        <img [src]="image.src" [alt]="image.alt" class="img-thumbnail w-100">
+        <div class="image-details mt-2">
+          <button (click)="downloadImage(image)" class="btn btn-primary">Pobierz</button>
+          <span class="ml-2">Pobrań: {{ image.downloads }}</span>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
