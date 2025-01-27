@@ -1,5 +1,4 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -7,7 +6,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-root',
   imports: [FormsModule, CommonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
   title = 'GaleriaWeb';
@@ -26,6 +25,13 @@ export class AppComponent implements OnInit {
     { id: 11, alt: "Garbus", filename: "obraz12.jpg", category: 3, downloads: 321 }
   ];
 
+  filteredImages: any[] = [];
+  categories = {
+    Kwiaty: true,
+    Zwierzeta: true,
+    Samochody: true
+  };
+
   ngOnInit() {
     this.loadImages();
   }
@@ -35,6 +41,20 @@ export class AppComponent implements OnInit {
       image.src = `assets/images/${image.filename}`;
       return image;
     });
+    this.filterImages();
+  }
+
+  filterImages() {
+    this.filteredImages = this.images.filter(image => {
+      if (this.categories.Kwiaty && image.category === 1) return true;
+      if (this.categories.Zwierzeta && image.category === 2) return true;
+      if (this.categories.Samochody && image.category === 3) return true;
+      return false;
+    });
+  }
+
+  anyCategorySelected(): boolean {
+    return this.categories.Kwiaty || this.categories.Zwierzeta || this.categories.Samochody;
   }
 
   downloadImage(image: any) {
