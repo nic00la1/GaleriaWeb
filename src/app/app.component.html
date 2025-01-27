@@ -24,7 +24,7 @@
   <div class="container">
     <div class="row">
       <div *ngIf="!anyCategorySelected()" class="col-12">
-        <p class="text-center btn-danger">Nie wybrano żadnej kategorii</p>
+        <p class="text-center text-danger">Nie wybrano żadnej kategorii</p>
       </div>
       <div *ngFor="let image of filteredImages; let i = index" class="col-md-4 col-sm-6 col-xs-12 mb-4">
         <div class="image-container">
