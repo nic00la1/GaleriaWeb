@@ -1,13 +1,13 @@
 <h2>Kategorie zdjęć</h2>
-<div class="form-check">
+<div class="form-check form-switch">
   <input class="form-check-input" type="checkbox" id="kwiaty" [(ngModel)]="categories.Kwiaty" (change)="filterImages()">
   <label class="form-check-label" for="kwiaty">Kwiaty</label>
 </div>
-<div class="form-check">
+<div class="form-check form-switch">
   <input class="form-check-input" type="checkbox" id="zwierzeta" [(ngModel)]="categories.Zwierzeta" (change)="filterImages()">
   <label class="form-check-label" for="zwierzeta">Zwierzęta</label>
 </div>
-<div class="form-check">
+<div class="form-check form-switch">
   <input class="form-check-input" type="checkbox" id="samochody" [(ngModel)]="categories.Samochody" (change)="filterImages()">
   <label class="form-check-label" for="samochody">Samochody</label>
 </div>
