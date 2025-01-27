@@ -1,0 +1,16 @@
+.modal.show {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+  }
+  
+  .modal-dialog-centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  .modal-body img {
+    max-width: 100%;
+    height: auto;
+  }

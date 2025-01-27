@@ -27,13 +27,28 @@
         <p class="text-center text-danger">Nie wybrano żadnej kategorii</p>
       </div>
       <div *ngFor="let image of filteredImages; let i = index" class="col-md-4 col-sm-6 col-xs-12 mb-4">
-        <div class="image-container">
+        <div class="image-container" (click)="openModal(image)">
           <img [src]="image.src" [alt]="image.alt" class="img-thumbnail w-100">
           <span class="h5">Pobrań: {{ image.downloads }}</span>
           <div class="image-details mt-2">
-            <button (click)="downloadImage(image)" class="btn bg-success text-white">Pobierz</button>
+            <button (click)="downloadImage(image); $event.stopPropagation()" class="btn bg-success text-white">Pobierz</button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" tabindex="-1" [ngClass]="{'show': isModalOpen}" [ngStyle]="{'display': isModalOpen ? 'block' : 'none'}" (click)="closeModal()">
+  <div class="modal-dialog modal-dialog-centered" (click)="$event.stopPropagation()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ selectedImage?.alt }}</h5>
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img [src]="selectedImage?.src" [alt]="selectedImage?.alt" class="img-fluid">
       </div>
     </div>
   </div>

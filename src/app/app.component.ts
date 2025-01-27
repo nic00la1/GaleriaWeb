@@ -31,6 +31,8 @@ export class AppComponent implements OnInit {
     Zwierzeta: true,
     Samochody: true
   };
+  selectedImage: any;
+  isModalOpen = false;
 
   ngOnInit() {
     this.loadImages();
@@ -61,4 +63,12 @@ export class AppComponent implements OnInit {
     image.downloads++;
     console.log(`Downloading image: ${image.alt}`);
   }
-}
+
+  openModal(image: any) {
+    this.selectedImage = image;
+    this.isModalOpen = true;
+  }
+  
+  closeModal() {
+    this.isModalOpen = false;
+  }}
